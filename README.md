@@ -20,17 +20,18 @@ Local calculation of air quality metrics for either indoor or outdoor sensors,
 for a variety of pollutants.
 
 - Indoor Sensors
-  - IAQI: ATMO produced this scale and formula as a way to produce a rating
+  - **IAQI**: ATMO produced this scale and formula as a way to produce a rating
     similar to AQI, but for indoor spaces.
     - https://atmotube.com/blog/indoor-air-quality-index-iaqi
 - Outdoor Sensors
-  - EPA NowCast AQI: This is what most people think of when they hear "AQI."
+  - **EPA NowCast AQI**: This is what most people think of when they hear "AQI."
     This "real time" metric still requires valid data from 2 out of the previous
     3 hours, but will produce a reading on the AQI scale much better suited to
     people wanting to know what the air quality is like "right now," whether the
     concern is pollen, smog, or wildire smoke.
     - https://en.wikipedia.org/wiki/NowCast_(air_quality_index)
-  - EPA AQI: Intended as a general air quality score spread across an entire day
+    - https://document.airnow.gov/technical-assistance-document-for-the-reporting-of-daily-air-quailty.pdf
+  - **EPA AQI**: Intended as a general air quality score spread across an entire day
     (midnight to midnight), the formula used by this integration takes a more
     liberal approach and looks at 24 hour windows to produce a smoother value
     curve.
@@ -42,10 +43,14 @@ for a variety of pollutants.
 
 Future metrics to be implemented [RSN](https://en.wiktionary.org/wiki/real_soon_now):
 
-- CAQI: This is the European equivalent to the EPA's AQI. The scale and
+- **PM2.5 AQI**: Add support for NowCast "trend" ratings and humidity-corrected
+  realtime numbers:
+  - https://document.airnow.gov/airnow-fire-and-smoke-map-questions-and-answers.pdf
+  - See existing AirGradient code: https://github.com/MallocArray/airgradient_esphome/blob/main/packages/sensor_pms5003t.yaml
+- **CAQI**: This is the European equivalent to the EPA's AQI. The scale and
   formulas are different.
   - https://en.wikipedia.org/wiki/Air_quality_index#CAQI
-- RESET: This group produces standards and programs related to indoor
+- **RESET**: This group produces standards and programs related to indoor
   commercial space. They have published information about air quality, but I
   haven't yet had time to see if there is anything that can be added to this
   integration.
@@ -111,10 +116,13 @@ segments:
   or recommendations for what hardware I should get so I can run my own tests.
 - Know anyone on the Home Assistant core team who can provide insight about
   adding new device classes? It would be great to support:
-  - VOC Index like from https://esphome.io/components/sensor/sgp4x/
-  - NOx Index like from https://esphome.io/components/sensor/sgp4x/
-  - Formaldehyde like from https://esphome.io/components/sensor/sfa30/
+  - **VOC Index** like from https://esphome.io/components/sensor/sgp4x/
+  - **NOx Index** like from https://esphome.io/components/sensor/sgp4x/
+  - **Formaldehyde** like from https://esphome.io/components/sensor/sfa30/
     or https://esphome.io/components/sensor/sm300d2/
+  - **IAQI**: The existing AQI device class isn't entirely appropriate because AQI
+    measures 0–500 with lower numbers representing clean air, whereas IAQI is
+    0-100 with higher numbers representing clean air.
 
 ## Installation
 
@@ -147,10 +155,6 @@ If you encounter issues or have feature requests, please log them in our officia
 ## Code Owners
 
 - [@ex-nerd](https://github.com/ex-nerd)
-
-## Air Quality Resources
-
-- https://document.airnow.gov/technical-assistance-document-for-the-reporting-of-daily-air-quailty.pdf
 
 [releases]: https://github.com/ex-nerd/ha-air-quality-metrics/releases
 [releases-shield]: https://img.shields.io/github/v/release/ex-nerd/ha-air-quality-metrics?include_prereleases&style=flat-square
