@@ -152,8 +152,8 @@ If you encounter issues or have feature requests, please log them in our officia
 
 - https://document.airnow.gov/technical-assistance-document-for-the-reporting-of-daily-air-quailty.pdf
 
-[releases-shield]: https://img.shields.io/github/v/release/ex-nerd/ha-air-quality-metrics?style=flat-square
 [releases]: https://github.com/ex-nerd/ha-air-quality-metrics/releases
+[releases-shield]: https://img.shields.io/github/v/release/ex-nerd/ha-air-quality-metrics?style=flat-square
 [project-stage-shield]: https://img.shields.io/badge/project%20stage-production-brightgreen.svg?style=flat-square
 [license-shield]: https://img.shields.io/github/license/ex-nerd/ha-air-quality-metrics?style=flat-square
 [aarch64-shield]: https://img.shields.io/badge/aarch64-yes-green?style=flat-square
@@ -162,4 +162,4 @@ If you encounter issues or have feature requests, please log them in our officia
 [github-actions]: https://github.com/ex-nerd/ha-air-quality-metrics/actions
 [maintenance-shield]: https://img.shields.io/badge/maintained%3F-yes-green.svg?style=flat-square
 [commits-shield]: https://img.shields.io/github/commit-activity/m/ex-nerd/ha-air-quality-metrics?style=flat-square
-[commits]: https://github.com/ex-nerd/ha-air-quality-metrics/graphs/commit-activity<img width="934" height="516" alt="nowcast_card_screenshot" src="https://github.com/user-attachments/assets/9b5c8359-7eb2-4576-87c7-f14ddd50701d" />
+[commits]: https://github.com/ex-nerd/ha-air-quality-metrics/graphs/commit-activity
