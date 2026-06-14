@@ -16,11 +16,12 @@ A Home Assistant custom component that calculates precise EPA Air Quality Index
 
 ## Features
 
-Produces air quality metrics for either indoor or outdoor sensors, for a variety
-of pollutant sensors.
+Local calculation of air quality metrics for either indoor or outdoor sensors,
+for a variety of pollutants.
 
 - Indoor Sensors
-  - IAQI: ATMO produced this scale and formula as a way to produce a rating similar to AQI, but for indoor spaces.
+  - IAQI: ATMO produced this scale and formula as a way to produce a rating
+    similar to AQI, but for indoor spaces.
     - https://atmotube.com/blog/indoor-air-quality-index-iaqi
 - Outdoor Sensors
   - EPA NowCast AQI: This is what most people think of when they hear "AQI."
