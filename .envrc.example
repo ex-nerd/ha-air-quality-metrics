@@ -1,0 +1,18 @@
+#!/bin/bash
+
+if ! command -v uv &> /dev/null; then
+    echo "⚠️ 'uv' is not installed. Please install it first."
+    return 1
+fi
+
+# Create the venv locally inside your isolated workspace
+if [ ! -d ".venv" ]; then
+    echo "No virtual environment found. Creating one with uv..."
+    uv venv
+fi
+
+# 2. Tell direnv to activate the environment natively
+source .venv/bin/activate
+
+# Set python path relative to your isolated workspace root
+export PYTHONPATH="${PWD}:${PYTHONPATH}"
