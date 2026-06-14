@@ -153,7 +153,7 @@ If you encounter issues or have feature requests, please log them in our officia
 - https://document.airnow.gov/technical-assistance-document-for-the-reporting-of-daily-air-quailty.pdf
 
 [releases]: https://github.com/ex-nerd/ha-air-quality-metrics/releases
-[releases-shield]: https://img.shields.io/github/v/release/ex-nerd/ha-air-quality-metrics?style=flat-square
+[releases-shield]: https://img.shields.io/github/v/release/ex-nerd/ha-air-quality-metrics?include_prereleases&style=flat-square
 [project-stage-shield]: https://img.shields.io/badge/project%20stage-production-brightgreen.svg?style=flat-square
 [license-shield]: https://img.shields.io/github/license/ex-nerd/ha-air-quality-metrics?style=flat-square
 [aarch64-shield]: https://img.shields.io/badge/aarch64-yes-green?style=flat-square
