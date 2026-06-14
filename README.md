@@ -36,17 +36,70 @@ of pollutant sensors.
     - https://en.wikipedia.org/wiki/Air_quality_index#United_States
     - https://en.wikipedia.org/wiki/Air_quality_index#Computing_the_AQI
 
+
+### Planned Future Additions
+
 Future metrics to be implemented [RSN](https://en.wiktionary.org/wiki/real_soon_now):
 
-  - CAQI: This is the European equivalent to the EPA's AQI. The scale and
-    formulas are different.
-    - https://en.wikipedia.org/wiki/Air_quality_index#CAQI
-  - RESET: This group produces standards and programs related to indoor
-    commercial space. They have published information about air quality, but I
-    haven't yet had time to see if there is anything that can be added to this
-    integration.
-    - https://reset.build/standard/air
+- CAQI: This is the European equivalent to the EPA's AQI. The scale and
+  formulas are different.
+  - https://en.wikipedia.org/wiki/Air_quality_index#CAQI
+- RESET: This group produces standards and programs related to indoor
+  commercial space. They have published information about air quality, but I
+  haven't yet had time to see if there is anything that can be added to this
+  integration.
+  - https://reset.build/standard/air
 
+Lovelace templates / blueprints:
+
+I'm still trying to figure out how to add either templates or blueprints based
+on the gauge card that I use in my own setup:
+
+<img width="467" height="258" alt="nowcast card screenshot" src="https://github.com/user-attachments/assets/3d202972-5ede-4bea-ad90-ee0eae1e8697" />
+
+For now, you can replicate it via something like this:
+
+```yaml
+type: gauge
+name: "NowCast"
+entity: sensor.outdoor_air_quality_nowcast_aqi
+needle: true
+min: 0
+max: 500
+segments:
+  - from: 0
+    color: "#00e400"
+  - from: 50
+    color: "#ffff00"
+  - from: 100
+    color: "#ff7e00"
+  - from: 150
+    color: "#ff0000"
+  - from: 200
+    color: "#8f3f97"
+  - from: 300
+    color: "#7e0023"
+```
+
+```yaml
+type: gauge
+name: "IAQI"
+entity: sensor.indoor_air_quality_iaqi
+needle: true
+min: 0
+max: 100
+segments:
+  - from: 0
+    color: "#d32758"
+  - from: 21
+    color: "#ea6445"
+  - from: 41
+    color: "#fcb35d"
+  - from: 61
+    color: "#b0c160"
+  - from: 81
+    color: "#56ceb5"
+```
 
 ## How can you help?
 
@@ -108,4 +161,4 @@ If you encounter issues or have feature requests, please log them in our officia
 [github-actions]: https://github.com/ex-nerd/ha-air-quality-metrics/actions
 [maintenance-shield]: https://img.shields.io/badge/maintained%3F-yes-green.svg?style=flat-square
 [commits-shield]: https://img.shields.io/github/commit-activity/m/ex-nerd/ha-air-quality-metrics?style=flat-square
-[commits]: https://github.com/ex-nerd/ha-air-quality-metrics/graphs/commit-activity
+[commits]: https://github.com/ex-nerd/ha-air-quality-metrics/graphs/commit-activity<img width="934" height="516" alt="nowcast_card_screenshot" src="https://github.com/user-attachments/assets/9b5c8359-7eb2-4576-87c7-f14ddd50701d" />
