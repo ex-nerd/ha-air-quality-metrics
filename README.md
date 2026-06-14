@@ -43,25 +43,35 @@ for a variety of pollutants.
 
 Future metrics to be implemented [RSN](https://en.wiktionary.org/wiki/real_soon_now):
 
-- **PM2.5 AQI**: Add support for NowCast "trend" ratings and humidity-corrected
-  realtime numbers:
-  - https://document.airnow.gov/airnow-fire-and-smoke-map-questions-and-answers.pdf
-  - See existing AirGradient code: https://github.com/MallocArray/airgradient_esphome/blob/main/packages/sensor_pms5003t.yaml
 - **CAQI**: This is the European equivalent to the EPA's AQI. The scale and
   formulas are different.
   - https://en.wikipedia.org/wiki/Air_quality_index#CAQI
+- **Spec-compliant AQI and NowCast**: This integration uses a "rolling window"
+  approach to calculating AQI and Nowcast, but the official calculations are
+  meant to be once per hour for NowCast, and midnight-to-midnight for AQI. I'm
+  considering adding the spec-compliant calculations for those who want them.
+- **NowCast Trend**: When following the true "only once per hour" calculations,
+  the EPA allows for a "trend" rating in NowCast based on more recent data that
+  hasn't yet been added to the calculation:
+  - https://document.airnow.gov/airnow-fire-and-smoke-map-questions-and-answers.pdf
 - **RESET**: This group produces standards and programs related to indoor
   commercial space. They have published information about air quality, but I
   haven't yet had time to see if there is anything that can be added to this
   integration.
   - https://reset.build/standard/air
 
+Room Mode:
+
+Instead of setting up these metrics by selecting individual sensors, I like the
+idea of selecting a room and having the integration auto-detect all relevant
+sensors within that room.
+
 Lovelace templates / blueprints:
 
 I'm still trying to figure out how to add either templates or blueprints based
 on the gauge card that I use in my own setup:
 
-<img width="467" height="258" alt="nowcast card screenshot" src="https://github.com/user-attachments/assets/3d202972-5ede-4bea-ad90-ee0eae1e8697" />
+<img width="461" height="246" alt="nowcast_card_screenshot" src="https://github.com/user-attachments/assets/a3f0ed5b-0741-4677-a8e0-f827117b9b0d" />
 
 For now, you can replicate it via something like this:
 
@@ -109,13 +119,23 @@ segments:
 
 ## How can you help?
 
-- Translations! I might use AI to help with some of the code but I don't trust
-  translations to be accurate within the contexts that they need to be.
-- I have some older AirGradient hardware but nothing with sensors for some of
-  the more exotic gasses/particles. I'd love some feedback from anyone who does,
-  or recommendations for what hardware I should get so I can run my own tests.
-- Know anyone on the Home Assistant core team who can provide insight about
-  adding new device classes? It would be great to support:
+- **Translations**. I might use AI to help with some of the code but I don't
+  trust translations to be accurate within the contexts that they need to be.
+- **More Metrics**. You can see the list above for metrics that I'm already
+  looking into, but please suggest any others that I haven't learned about yet.
+- **Icon**. I'm not an artist. If you have a good idea for a brand logo for this
+  integration, please submit a pull request. I ask only that it be drawn by you
+  and not an AI.
+- **Lovelace templates**. I plan to add templates/blueprints to this
+  integration, but I am not a UI designer so would welcome contributions from
+  anyone who has good ideas about how to render these metrics into Home
+  Assistant dashboards.
+- **More sensor tests**. I have some older AirGradient hardware but nothing with
+  sensors for some of the more exotic gasses/particles. I'd love some feedback
+  from anyone who does, or recommendations for what hardware I should get so I
+  can run my own tests.
+- **Device classes**. Know anyone on the Home Assistant core team who can
+  provide insight about adding new device classes? It would be great to support:
   - **VOC Index** like from https://esphome.io/components/sensor/sgp4x/
   - **NOx Index** like from https://esphome.io/components/sensor/sgp4x/
   - **Formaldehyde** like from https://esphome.io/components/sensor/sfa30/
