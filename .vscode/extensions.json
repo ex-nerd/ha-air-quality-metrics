@@ -1,0 +1,10 @@
+{
+  "recommendations": [
+    "astral-sh.ty",
+    "charliermarsh.ruff",
+    "esbenp.prettier-vscode",
+    "lukas-tr.materialdesignicons-intellisense",
+    "ms-python.python",
+    "ms-python.vscode-pylance"
+  ]
+}

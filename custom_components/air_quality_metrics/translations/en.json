@@ -1,0 +1,167 @@
+{
+  "title": "Air Quality Metrics",
+  "selector": {
+    "profile": {
+      "options": {
+        "indoor": "Indoor",
+        "outdoor": "Outdoor"
+      }
+    }
+  },
+  "config": {
+    "step": {
+      "user": {
+        "title": "Configure Air Quality Metrics",
+        "data": {
+          "profile": "Sensor Location"
+        }
+      },
+      "sensors": {
+        "title": "Configure Tracked Sensors",
+        "data": {
+          "scan_interval": "Update Interval",
+          "sensors": "Source Entities"
+        }
+      }
+    },
+    "error": {
+      "no_sensors_selected": "You must select at least one source sensor entity."
+    }
+  },
+  "options": {
+    "step": {
+      "init": {
+        "title": "Adjust Configuration Options",
+        "description": "Adjust the polling interval or alter the specific monitored sensors below.",
+        "data": {
+          "scan_interval": "Update Interval",
+          "sensors": "Source Entities"
+        }
+      }
+    },
+    "error": {
+      "no_sensors_selected": "You must select at least one source sensor entity."
+    }
+  },
+  "entity": {
+    "sensor": {
+      "nowcast_aqi": {
+        "name": "NowCast AQI"
+      },
+      "nowcast_primary_pollutant": {
+        "name": "NowCast Primary Pollutant",
+        "state": {
+          "pm25": "PM2.5",
+          "pm10": "PM10",
+          "o3": "Ozone (O₃)",
+          "no2": "Nitrogen Dioxide (NO₂)",
+          "co": "Carbon Monoxide (CO)",
+          "so2": "Sulfur Dioxide (SO₂)"
+        }
+      },
+      "nowcast_category": {
+        "name": "NowCast Category",
+        "state": {
+          "good": "Good",
+          "moderate": "Moderate",
+          "unhealthy_sensitive": "Unhealthy for Sensitive Groups",
+          "unhealthy": "Unhealthy",
+          "very_unhealthy": "Very Unhealthy",
+          "hazardous": "Hazardous"
+        }
+      },
+      "nowcast_color": {
+        "name": "NowCast Color"
+      },
+      "nowcast_color_assist": {
+        "name": "NowCast ColorVision Assist"
+      },
+      "nowcast_color_name": {
+        "name": "NowCast Color Name",
+        "state": {
+          "green": "Green",
+          "yellow": "Yellow",
+          "orange": "Orange",
+          "red": "Red",
+          "purple": "Purple",
+          "maroon": "Maroon"
+        }
+      },
+      "nowcast_data_expected": {
+        "name": "NowCast Data Expected"
+      },
+      "daily_aqi": {
+        "name": "Daily AQI"
+      },
+      "daily_primary_pollutant": {
+        "name": "Daily Primary Pollutant",
+        "state": {
+          "pm25": "PM2.5",
+          "pm10": "PM10",
+          "o3": "Ozone (O₃)",
+          "no2": "Nitrogen Dioxide (NO₂)",
+          "co": "Carbon Monoxide (CO)",
+          "so2": "Sulfur Dioxide (SO₂)"
+        }
+      },
+      "daily_category": {
+        "name": "Daily Category",
+        "state": {
+          "good": "Good",
+          "moderate": "Moderate",
+          "unhealthy_sensitive": "Unhealthy for Sensitive Groups",
+          "unhealthy": "Unhealthy",
+          "very_unhealthy": "Very Unhealthy",
+          "hazardous": "Hazardous"
+        }
+      },
+      "daily_color": {
+        "name": "Daily Color"
+      },
+      "daily_color_name": {
+        "name": "Daily Color Name",
+        "state": {
+          "green": "Green",
+          "yellow": "Yellow",
+          "orange": "Orange",
+          "red": "Red",
+          "purple": "Purple",
+          "maroon": "Maroon"
+        }
+      },
+      "daily_color_assist": {
+        "name": "Daily ColorVision Assist"
+      },
+      "daily_data_expected": {
+        "name": "Daily Data Expected"
+      },
+      "iaqi": {
+        "name": "IAQI"
+      },
+      "iaqi_primary_pollutant": {
+        "name": "IAQI Primary pollutant",
+        "state": {
+          "carbon_monoxide": "Carbon monoxide (CO)",
+          "carbon_dioxide": "Carbon dioxide (CO₂)",
+          "pm1": "PM1",
+          "pm10": "PM10",
+          "pm25": "PM2.5",
+          "ozone": "Ozone (O₃)"
+        }
+      },
+      "iaqi_category": {
+        "name": "IAQI category",
+        "state": {
+          "good": "Good",
+          "moderate": "Moderate",
+          "polluted": "Polluted",
+          "very_polluted": "Very Polluted",
+          "severely_polluted": "Severely Polluted"
+        }
+      },
+      "iaqi_color": {
+        "name": "IAQI color hex"
+      }
+    }
+  }
+}

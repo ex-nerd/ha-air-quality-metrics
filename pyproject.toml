@@ -1,0 +1,73 @@
+[project]
+name = "ha-air-quality-metrics"
+version = "0.1.0"
+description = "A Home Assistant component for calculating air quality metrics"
+readme = "README.md"
+requires-python = ">=3.14.2"
+dependencies = [
+    "homeassistant",
+    "pytest",
+    "pytest-homeassistant-custom-component",
+]
+
+[tool.setuptools.packages.find]
+include = ["custom_components*", "tests*", "scripts*"]
+exclude = ["blueprints*"]
+
+[dependency-groups]
+dev = [
+    "pytest>=9.0.0",
+    "pytest-homeassistant-custom-component>=0.13.337",
+    "python-dotenv>=1.2.2",
+    "ruff>=0.15.16",
+    "ty>=0.0.44",
+]
+
+[tool.uv]
+package = true
+
+[project.scripts]
+build = "scripts:build"
+clean = "scripts:clean"
+deploy = "scripts:deploy"
+format = "scripts:format"
+lint = "scripts:lint"
+test = "scripts:test"
+typecheck = "scripts:typecheck"
+verify = "scripts:verify"
+
+[tool.ruff]
+target-version = "py314"
+line-length = 88
+exclude = [
+    ".direnv",
+    ".eggs",
+    ".git",
+    ".git-rewrite",
+    ".mypy_cache",
+    ".pytest_cache",
+    ".ruff_cache",
+    ".venv",
+    ".vscode",
+]
+
+[tool.ruff.lint]
+preview = true
+select = ["E", "F", "W", "I", "B", "C4", "UP"]
+extend-select = [
+    # Catch micro (µ) vs mu (μ) because home assistant only uses mu
+    "RUF001",
+]
+ignore = [
+    "D203",
+    "D213",
+    # let the formatter decide which lines are too long
+    "E501",
+]
+
+[tool.pytest.ini_options]
+asyncio_mode = "auto"
+asyncio_default_fixture_loop_scope = "function"
+testpaths = ["tests"]
+pythonpath = ["."]
+consider_namespace_packages = true
